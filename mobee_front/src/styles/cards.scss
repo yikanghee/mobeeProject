@@ -1,0 +1,26 @@
+.cards{
+  margin-right: auto;
+  margin-left: auto;
+  width: 70vw;
+  min-width: 320px;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 320px;
+  max-width: 800px;
+  span{
+    width: 120px;
+    margin-top: 5px;
+    font-size: 13px;
+  }
+}
+
+//  반응형
+@media screen and (max-width:768px){
+  .cards{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
