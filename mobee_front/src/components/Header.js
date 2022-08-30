@@ -71,7 +71,7 @@ const Header = (props) => {
               {is_login ?
                 (<a className='nav-link'
                 //클릭시 채팅
-                onClick={() => {location.replace("http://52.79.250.98:8090/chat/room?token=" + accessToken)}}
+                onClick={() => {location.replace("http://localhost:8080/chat/room?token=" + accessToken)}}
                 ><span className='logo-bold'>채팅방</span></a>)
                 :
                 (<a className='nav-link'
@@ -90,7 +90,7 @@ const Header = (props) => {
             {`${admin==adminName}` ?
                 (<a className='nav-link'
                 //클릭시 작동
-                onClick={() => {location.replace("http://52.79.250.98:8090/admin/account")}}
+                onClick={() => {location.replace("http://localhost/admin/account")}}
                 ><span className='logo-bold'>관리자 페이지</span></a>)
                 :
                 (<a className='nav-link'

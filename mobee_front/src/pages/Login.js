@@ -6,6 +6,7 @@ import "../styles/login.scss";
 // 모듈
 import { useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
+import {history} from "../redux/configStore";
 
 
 const Login = (props) => {
@@ -75,9 +76,15 @@ const Login = (props) => {
                 { history.push('/signup') }
               }}
             >회원가입</button>
+            <button
+                className="findPW"
+                onClick={history.push('')}
+            >
+              비밀번호 찾기
+            </button>
             {/* <button className="signin_button"
               onClick={(login) => {
-                { location.replace("http://52.79.250.98:8090/user/index") }
+                { location.replace("http://localhost:8080/user/index") }
               }}
             >관리자 로그인</button> */}
           </div>

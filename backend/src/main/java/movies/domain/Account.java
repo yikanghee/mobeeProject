@@ -28,6 +28,9 @@ public class Account {
     @Column(unique = true)
     private String username;
 
+    @Column(unique = true)
+    private String email;
+
     @Column(nullable = false)
     private String password;
 
@@ -47,9 +50,10 @@ public class Account {
     @Builder.Default
     private Set<Heart> hearts = new HashSet<>();
 
-    public Account(String username, String password) {
+    public Account(String username, String password, String email) {
         this.username = username;
         this.password = password;
+        this.email = email;
     }
 
     @ElementCollection(fetch = FetchType.EAGER)

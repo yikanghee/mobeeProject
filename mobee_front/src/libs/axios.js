@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getCookie } from "../shared/cookie";
 
-const BASE_URL = `52.79.250.98:8090`;
+const BASE_URL = `localhost:8080`;
 
 export const instance = axios.create({
   // 기본적으로 우리가 바라볼 서버의 주소

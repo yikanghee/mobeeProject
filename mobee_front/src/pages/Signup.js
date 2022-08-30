@@ -18,6 +18,7 @@ const Signup = (props) => {
   // state 관리를 위한 hook
   // 회원가입 정보
   const [id, setId] = React.useState("");
+  const [email, setEmail] = React.useState("");
   const [pwd, setPwd] = React.useState("");
   const [pwd_check, setPwdCheck] = React.useState("");
 
@@ -25,11 +26,13 @@ const Signup = (props) => {
   const signup = () => {
     // 아이디 유효성 검사
     let idRegExp = /^[a-zA-z0-9]{4,12}$/;
+    // 이메일 유효성 검사
+    let emailRegExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
     // 비밀번호 유효성 검사
     let passwordRegExp = /^[a-zA-z0-9]{4,12}$/;
 
     // 모든 정보 입력 여부 확인
-    if (id === '' || pwd === '') {
+    if (id === '' || email === '' || pwd === '') {
       window.alert('회원가입에 필요한 모든 정보를 입력해주세요.');
       return
     }
@@ -49,13 +52,17 @@ const Signup = (props) => {
       return
     }
 
+    if (!emailRegExp.test(email)) {
+      alert('이메일 형식을 확인해주세요.')
+    }
+
     if (!passwordRegExp.test(pwd)) {
       alert('비밀번호는 영문 대소문자와 숫자 4~12자리로 입력해주세요.');
-      return
+      return;
     }
 
     // 회원 가입 정보를 서버에 보내기
-    dispatch(userActions.signupAPI(id, pwd, pwd_check));
+    dispatch(userActions.signupAPI(id,email, pwd, pwd_check));
 
   }
 
@@ -80,6 +87,16 @@ const Signup = (props) => {
               onChange={(e) => {
                 setId(e.target.value);
               }}
+            ></input>
+
+            <input
+                className="input_solo"
+                placeholder="이메일"
+                type="text"
+                // 아이디 입력
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
             ></input>
 
             <div className="inner_form">

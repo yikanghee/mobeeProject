@@ -11,6 +11,7 @@ import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import Detail from '../pages/Detail';
 import KakaoMap from '../pages/KakaoMap';
+import findPW from '../pages/findPW';
 
 // Not Found
 import NotFound from '../pages/NotFound';
@@ -28,6 +29,7 @@ const App = (props) => {
           <Route path='/' exact component={Main} />
           <Route path='/login' exact component={Login} />
           <Route path='/signup' exact component={Signup} />
+          <Route path='/findPW' exact component={findPW} />
           <Route path='/kakaoMap' exact component={KakaoMap} />
           <Route path='/detail/:id' exact component={Detail} />
           {/* Not Found */}

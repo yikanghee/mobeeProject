@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface AccountRepository extends JpaRepository<Account, Long>, QuerydslPredicateExecutor<Account> {
 
     Optional<Account> findByUsername(String username);
+
+    Optional<Account> findByEmail(String email);
 }

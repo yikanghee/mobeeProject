@@ -36,7 +36,11 @@ public class AccountController {
     public ResponseEntity registerAccount(@RequestBody AccountRequestDto requestDto) {
 
         Optional<Account> found = accountRepository.findByUsername(requestDto.getUsername());
+        Optional<Account> foundEmail = accountRepository.findByEmail(requestDto.getEmail());
 
+        if (foundEmail.isPresent()) {
+            throw new IllegalArgumentException("중복된 Email이 존재합니다.");
+        }
         if (found.isPresent()) {
             throw new IllegalArgumentException("중복된 사용자 ID가 존재합니다.");
         }
@@ -47,7 +51,6 @@ public class AccountController {
         accountService.registerAccount(requestDto);
         return ResponseEntity.ok().build();
     }
-
     // 로그인
     @PostMapping("/api/login")
     public String login(@RequestBody Map<String, String> account) {

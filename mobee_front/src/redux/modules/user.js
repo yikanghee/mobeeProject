@@ -28,13 +28,14 @@ const initialState = {
 }
 
 // 회원 가입
-const signupAPI = (id, pwd, pwd_check) => {
+const signupAPI = (id, email, pwd, pwd_check) => {
   return function (dispatch, getState, { history }) {
-    const API = "http://52.79.250.98:8090/api/signup";
+    const API = "http://localhost:8080/api/signup";
 
     axios.post(API,
       {
         "username": id,
+        "email" : email,
         "password": pwd,
         "passwordConfirm": pwd_check,
       },
@@ -58,7 +59,7 @@ const signupAPI = (id, pwd, pwd_check) => {
 const loginAPI = (id, pwd) => {
   return function (dispatch, getState, { history }) {
 
-    const API = "http://52.79.250.98:8090/api/login";
+    const API = "http://localhost:8080/api/login";
 
     axios.post(API,
       {
@@ -107,31 +108,12 @@ const loginAPI = (id, pwd) => {
         console.log(error);
         window.alert('잘못된 회원 정보입니다.');
       })
-
-    // fetch(API, {
-    //   method: "POST",
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     username: id,
-    //     password: pwd,
-    //   })
-    // })
-    //   .then(response => response.json())
-    //   .then(response => {
-    //     if (response.token) {
-    //       // 로컬스토리지 저장
-    //       localStorage.setItem("is_token", response.token);
-    //       localStorage.setItem("login_id", id);
-    //       dispatch(setUser({
-    //         username: id,
-    //       }))
-    //       window.alert('로그인되었습니다.');
-    //       history.push('/');
-    //     }
-    //   })
   }
+}
+
+// 비밀번호 찾기
+const findPassword = () => {
+
 }
 
 // 로그아웃

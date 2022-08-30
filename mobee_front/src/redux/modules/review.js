@@ -65,7 +65,7 @@ const writeReviewAPI = (id) => {
     const id = getState().movies.movie_info.id;
     const text = getState().review.text;
     const star = getState().review.star;
-    const API = `http://52.79.250.98:8090/api/movies/${id}/comments`;
+    const API = `http://localhost:8080/api/movies/${id}/comments`;
     const token = localStorage.getItem('is_token');
     if (text === "" || star === 0) {
       window.alert('리뷰 내용을 작성해주세요.')
@@ -104,7 +104,7 @@ const writeReviewAPI = (id) => {
 // 페이지에 맞춰 영화 리뷰 가져오기
 const getReviewAPI = (id) => {
   return function (dispatch, getState, { history }) {
-    const API = `http://52.79.250.98:8090/api/movies/${id}/comments`;
+    const API = `http://localhost:8080/api/movies/${id}/comments`;
     axios.get(API)
       .then((response) => {
         return response.data
@@ -146,7 +146,7 @@ const editReviewAPI = () => {
       window.alert('별점과 내용을 수정해주세요.')
       return
     }
-    const API = `http://52.79.250.98:8090/api/movies/${id}/comments/${comment_id}`;
+    const API = `http://localhost:8080/api/movies/${id}/comments/${comment_id}`;
     const token = localStorage.getItem('is_token');
     axios.put(API,
       {
@@ -181,7 +181,7 @@ const deleteReviewAPI = () => {
   return function (dispatch, getState, { history }) {
     const comment_id = getState().review.user_comment.id;
     const id = getState().movies.movie_info.id;
-    const API = `http://52.79.250.98:8090/api/movies/${id}/comments/${comment_id}`;
+    const API = `http://localhost:8080/api/movies/${id}/comments/${comment_id}`;
     const token = localStorage.getItem('is_token');
     axios.delete(API,
 

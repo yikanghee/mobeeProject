@@ -28,7 +28,7 @@ public class AccountService{
         return accountRepository.save(
                 Account.builder()
                     .username(requestDto.getUsername())
-                    .password(passwordEncoder.encode(requestDto.getPassword()))
+                    .password(passwordEncoder.encode(requestDto.getPassword())).email(requestDto.getEmail())
                     .roles(Collections.singletonList("ROLE_USER"))
                     .build()
         );
