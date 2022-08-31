@@ -19,6 +19,8 @@ instance.interceptors.request.use((config) => {
 
   const token = localStorage.getItem("is_token")
   const refresh = localStorage.getItem("is_refresh")
+  console.log("token 인식하네?")
+
   if (token) {
     config.headers.common["X-AUTH-TOKEN"] = token
     config.headers.common["X-AUTH-REFRESHTOKEN"] = refresh

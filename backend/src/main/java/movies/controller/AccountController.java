@@ -4,6 +4,7 @@ package movies.controller;
 import lombok.extern.slf4j.Slf4j;
 import movies.domain.Account;
 import movies.domain.Message;
+import movies.dto.AccountFindRequestDto;
 import movies.repository.AccountRepository;
 import movies.service.AccountService;
 import com.google.gson.JsonObject;
@@ -36,11 +37,7 @@ public class AccountController {
     public ResponseEntity registerAccount(@RequestBody AccountRequestDto requestDto) {
 
         Optional<Account> found = accountRepository.findByUsername(requestDto.getUsername());
-        Optional<Account> foundEmail = accountRepository.findByEmail(requestDto.getEmail());
 
-        if (foundEmail.isPresent()) {
-            throw new IllegalArgumentException("중복된 Email이 존재합니다.");
-        }
         if (found.isPresent()) {
             throw new IllegalArgumentException("중복된 사용자 ID가 존재합니다.");
         }
@@ -68,6 +65,14 @@ public class AccountController {
         log.info("로그인 token 값 : " + obj.toString());
 
         return obj.toString();
+    }
+
+    @PostMapping("/api/pw-find")
+    public ResponseEntity findPw(@RequestBody AccountFindRequestDto accountFindRequestDto) {
+
+        accountService.findPw(accountFindRequestDto);
+
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/api/refresh")

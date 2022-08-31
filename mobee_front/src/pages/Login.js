@@ -27,54 +27,54 @@ const Login = (props) => {
   }
 
   return (
-    <React.Fragment>
-      <body className="login_body">
+      <React.Fragment>
+        <body className="login_body">
 
         <div className="header_box">
           <h1 className="ridi_logo"
-            onClick={() => { history.push('/') }}
+              onClick={() => { history.push('/') }}
           >MOBEE</h1>
         </div>
         <div className="Container">
           <div className="form_box">
             <div className="inner_form">
               <input
-                className="login_input"
-                placeholder="아이디"
-                type="text"
-                // 아이디 입력
-                onChange={(e) => {
-                  setId(e.target.value);
-                }}
+                  className="login_input"
+                  placeholder="아이디"
+                  type="text"
+                  // 아이디 입력
+                  onChange={(e) => {
+                    setId(e.target.value);
+                  }}
               ></input>
               <input
-                className="login_input"
-                placeholder="비밀번호"
-                type="password"
-                // 비밀번호 입력
-                onChange={(e) => {
-                  setPwd(e.target.value);
-                }}
-                // 엔터키 로그인
-                onKeyPress={(e) => {
-                  if (e.key === 'Enter') {
-                    login();
-                  }
-                }}
+                  className="login_input"
+                  placeholder="비밀번호"
+                  type="password"
+                  // 비밀번호 입력
+                  onChange={(e) => {
+                    setPwd(e.target.value);
+                  }}
+                  // 엔터키 로그인
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter') {
+                      login();
+                    }
+                  }}
               ></input>
 
             </div>
 
 
             <button
-              className="login_button"
-              // 로그인
-              onClick={login}
+                className="login_button"
+                // 로그인
+                onClick={login}
             >로그인</button>
             <button className="signin_button"
-              onClick={() => {
-                { history.push('/signup') }
-              }}
+                    onClick={() => {
+                      { history.push('/signup') }
+                    }}
             >회원가입</button>
             <button
                 className="findPW"
@@ -89,8 +89,8 @@ const Login = (props) => {
             >관리자 로그인</button> */}
           </div>
         </div>
-      </body>
-    </React.Fragment>
+        </body>
+      </React.Fragment>
   );
 };
 
