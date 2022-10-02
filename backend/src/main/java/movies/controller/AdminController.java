@@ -7,6 +7,7 @@ import movies.repository.AccountRepository;
 import movies.repository.CommentRepository;
 import movies.repository.HeartRepository;
 import movies.service.AccountService;
+import movies.service.AdminService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,10 +21,10 @@ import java.util.List;
 public class AdminController {
 
     private final AccountRepository accountRepository;
-    private final HeartRepository heartRepository;
-    private final CommentRepository commentRepository;
 
-    @GetMapping("/admin/account")
+    private final AdminService adminService;
+
+    @GetMapping("/api/admin/account")
     public String account(Model model) {
 
         List<Account> accounts = accountRepository.findAll();
@@ -33,18 +34,14 @@ public class AdminController {
         return "admin/account";
     }
 
-    @GetMapping("/admin/delete")
+    @GetMapping("/api/admin/delete")
     public String deleteAccount(@RequestParam("id") Long id,
                                 RedirectAttributes attributes) {
 
-        heartRepository.deleteByAccountId(id);
-        commentRepository.deleteByAccountId(id);
-
-        accountRepository.deleteById(id);
+        adminService.deleteAccount(id);
 
         attributes.addFlashAttribute("message", "계정을 삭제했습니다");
         return "redirect:/admin/account";
-
     }
 
 }

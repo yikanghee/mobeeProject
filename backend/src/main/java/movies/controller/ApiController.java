@@ -4,6 +4,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import movies.service.CrowlingService;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
@@ -21,6 +25,7 @@ import java.net.URL;
 public class ApiController {
 
     private final movies.service.ApiService ApiService;
+    private final CrowlingService crowlingService;
 
     private final String KEY = "bf4027c3100b9e4e2dc3221cfb994433";
 
@@ -28,7 +33,7 @@ public class ApiController {
 
     // 총 페이지를 알아내기 위한 컨트롤러
     @ResponseBody
-    @GetMapping("/api/getPages")
+    @GetMapping("/api/movie/getPages")
     public int getPages() {
 
         int page = 0 ;
@@ -64,7 +69,7 @@ public class ApiController {
 
     // api 정보를 DB에 저장
     @ResponseBody
-    @GetMapping("/api/getInfo")
+    @GetMapping("/api/movie/getInfo")
     public String getInfo() {
 
         int pages = 1;
@@ -92,7 +97,8 @@ public class ApiController {
         return "ok";
     }
 
-    @RequestMapping(value = "crawlingMovieInfo")
+
+    @RequestMapping(value = "/api/crawlingMovieInfo")
     @ResponseBody
     public String movieApi(HttpServletRequest request, ModelMap model) throws Exception {
 

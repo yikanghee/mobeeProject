@@ -111,11 +111,6 @@ const loginAPI = (id, pwd) => {
   }
 }
 
-// 비밀번호 찾기
-const findPassword = () => {
-
-}
-
 // 로그아웃
 // 로컬스토리지에서 토큰 지우기
 const logoutStorage = () => {
@@ -150,6 +145,56 @@ const logInCheckStorage = () => {
   };
 };
 
+// 비밀번호 찾기
+const pwAPI = (email) => {
+  return function (dispatch, getState, {history}) {
+
+    const API = "http://localhost:8080/api/findPassword";
+
+    axios.post(API,
+        {
+          "email" : email,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        }).then((response) => {
+      window.alert("이메일에 임시 비밀번호를 전송했습니다. 확인해주세요");
+      history.push('login');
+    })
+        .catch((error) => {
+          console.log(error);
+          window.alert('유효하지 않은 이메일입니다.');
+        })
+  };
+}
+
+// 아이디 찾기
+const idAPI = (email) => {
+  return function (dispatch, getState, {history}) {
+
+    const API = "http://localhost:8080/api/findId";
+
+    axios.post(API,
+        {
+          "email" : email,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        }).then((response) => {
+      window.alert("이메일에 아이디를 전송했습니다. 확인해주세요");
+      history.push('login');
+    })
+        .catch((error) => {
+          console.log(error);
+          window.alert('유효하지 않는 이메일입니다.');
+        })
+  };
+}
+
 // Reducers
 export default handleActions(
   {
@@ -171,6 +216,8 @@ export default handleActions(
 const actionCreators = {
   signupAPI,
   loginAPI,
+  pwAPI,
+  idAPI,
   logoutStorage,
   logInCheckStorage,
 };

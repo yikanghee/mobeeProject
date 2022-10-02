@@ -2,7 +2,6 @@ package movies.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -18,6 +17,7 @@ import java.util.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
+@Table(name = "Account")
 public class Account {
 
     @Id
