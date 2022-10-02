@@ -96,6 +96,7 @@ const movieListAPI = (select) => {
         dispatch(setMovies(_movie_list));
       }).catch((error) => {
       });
+
   }
 };
 
