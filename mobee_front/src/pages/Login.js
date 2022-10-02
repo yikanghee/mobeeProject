@@ -76,12 +76,23 @@ const Login = (props) => {
                       { history.push('/signup') }
                     }}
             >회원가입</button>
+              <button
+                  className="signin_button"
+                  onClick={() => {
+                      { history.push('/findId') }
+                  }}
+              >
+                  아이디 찾기
+              </button>
             <button
-                className="findPW"
-                onClick={history.push('')}
+                className="signin_button"
+                onClick={() => {
+                    { history.push('/findPW') }
+                }}
             >
               비밀번호 찾기
             </button>
+
             {/* <button className="signin_button"
               onClick={(login) => {
                 { location.replace("http://localhost:8080/user/index") }

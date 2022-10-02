@@ -7,11 +7,10 @@ import movies.config.JwtTokenProvider;
 import movies.domain.Account;
 import movies.dto.AccountRequestDto;
 import movies.dto.MailDto;
+import movies.exception.AccountException;
+import movies.exception.result.AccountExceptionResult;
 import movies.repository.AccountRepository;
-import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -24,7 +23,7 @@ import java.util.Optional;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class AccountService{
+public class AccountService {
 
     private final AccountRepository accountRepository;
 
@@ -33,10 +32,10 @@ public class AccountService{
     private final PasswordEncoder passwordEncoder;
 
     private final JavaMailSender mailSender;
-    private static final String FROM_ADDRESS = "yikanghee2@naver.com";
+    private static final String FROM_ADDRESS = "";
 
 
-    public Account registerAccount(AccountRequestDto requestDto){
+    public Account registerAccount(AccountRequestDto requestDto) {
 
         Optional<Account> found = accountRepository.findByUsername(requestDto.getUsername());
 
@@ -49,16 +48,16 @@ public class AccountService{
 
         return accountRepository.save(
                 Account.builder()
-                    .username(requestDto.getUsername())
-                    .password(passwordEncoder.encode(requestDto.getPassword())).email(requestDto.getEmail())
-                    .roles(Collections.singletonList("ROLE_USER"))
-                    .build()
+                        .username(requestDto.getUsername())
+                        .password(passwordEncoder.encode(requestDto.getPassword())).email(requestDto.getEmail())
+                        .roles(Collections.singletonList("ROLE_USER"))
+                        .build()
         );
     }
 
     public String login(Map<String, String> account) {
 
-        Account acc = accountRepository.findByUsername(account.get("username")).orElseThrow(() -> new IllegalArgumentException("가입되지 않은 회원 입니다."));
+        Account acc = accountRepository.findByUsername(account.get("username")).orElseThrow(() -> new AccountException(AccountExceptionResult.ACCOUNT_NOT_FOUND));
 
         if (!passwordEncoder.matches(account.get("password"), acc.getPassword())) {
             throw new IllegalArgumentException("잘못된 비밀번호입니다.");
@@ -73,13 +72,12 @@ public class AccountService{
         return obj.toString();
     }
 
-    public Account findById(Long id) {
-        Account account = accountRepository.findById(id).orElseThrow(
+    public Account findByUsername(String username) {
+        Account account = accountRepository.findByUsername(username).orElseThrow(
                 () -> new IllegalArgumentException("찾을 유저가 없습니다")
         );
         return account;
     }
-
 
 
     public MailDto findPw(String email) {
@@ -97,7 +95,7 @@ public class AccountService{
         String str = getTempPassword();
         MailDto dto = new MailDto();
         dto.setAddress(email);
-        dto.setTitle(userName +"님의 MOBEE 임시비밀번호 안내 이메일 입니다.");
+        dto.setTitle(userName + "님의 MOBEE 임시비밀번호 안내 이메일 입니다.");
         dto.setMessage("<p> 안녕하세요. MOBEE 임시비밀번호 안내 관련 이메일 입니다." + "[" + userName + "]" + "님의 임시 비밀번호는 "
                 + str + " 입니다. </p>");
         updatePassword(str, email);
@@ -119,7 +117,7 @@ public class AccountService{
 
         MailDto dto = new MailDto();
         dto.setAddress(email);
-        dto.setTitle(userName +"님의 아이디 안내 이메일 입니다.");
+        dto.setTitle(userName + "님의 아이디 안내 이메일 입니다.");
         dto.setMessage("<p> 안녕하세요. 아이디 안내 관련 이메일 입니다." + "[" + userName + "]" + "님의 아이디는 "
                 + userName + " 입니다. </p>");
 
@@ -154,12 +152,12 @@ public class AccountService{
 
     }
 
-    public String getTempPassword(){
+    public String getTempPassword() {
 
         log.info("getTempPassword Start!!");
 
-        char[] charSet = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',
-                'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+        char[] charSet = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',
+                'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
         String str = "";
 
@@ -178,10 +176,10 @@ public class AccountService{
 
         String charSet = "utf-8";
         String hostSMTP = "smtp.naver.com";
-        String hostSMTPid = "yikanghee2@naver.com";
-        String hostSMTPpwd = "rkdgml5933@@";
+        String hostSMTPid = "";
+        String hostSMTPpwd = "";
 
-        String fromEmail = "yikanghee2@naver.com";
+        String fromEmail = "";
         String fromName = "MOBEE";
 
         String mail = mailDto.getAddress();
@@ -205,7 +203,6 @@ public class AccountService{
             throw new RuntimeException(e);
         }
     }
-
 
 
 }

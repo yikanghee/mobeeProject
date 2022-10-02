@@ -9,6 +9,7 @@ import SearchPlace from '../elements/SearchPlace';
 import Footer from '../components/Footer';
 
 import '../styles/map.scss';
+import Cards2 from "../components/Cards2";
 
 // 메인 페이지 컴포넌트
 const KakaoMap = (props) => {
@@ -16,6 +17,7 @@ const KakaoMap = (props) => {
   return (
     <div className='KakaoMap'>
       <Header history={props.history} />
+        <Cards2 history={props.history}/>
       <SearchPlace />
       <MapContainer />
       <Footer />

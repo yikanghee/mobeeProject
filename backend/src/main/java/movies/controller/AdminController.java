@@ -24,7 +24,7 @@ public class AdminController {
 
     private final AdminService adminService;
 
-    @GetMapping("/admin/account")
+    @GetMapping("/api/admin/account")
     public String account(Model model) {
 
         List<Account> accounts = accountRepository.findAll();
@@ -34,7 +34,7 @@ public class AdminController {
         return "admin/account";
     }
 
-    @GetMapping("/admin/delete")
+    @GetMapping("/api/admin/delete")
     public String deleteAccount(@RequestParam("id") Long id,
                                 RedirectAttributes attributes) {
 

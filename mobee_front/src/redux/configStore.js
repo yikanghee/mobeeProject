@@ -9,6 +9,7 @@ import User from "./modules/user";
 import Movies from "./modules/movies";
 import Review from './modules/review';
 import Heart from './modules/heart';
+import Movies2 from './modules/movies2'
 
 export const history = createBrowserHistory();
 
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   movies: Movies,
   review: Review,
   heart: Heart,
+  movies2 : Movies2,
   router: connectRouter(history),
 });
 

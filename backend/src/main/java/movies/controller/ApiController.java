@@ -27,14 +27,13 @@ public class ApiController {
     private final movies.service.ApiService ApiService;
     private final CrowlingService crowlingService;
 
-
     private final String KEY = "bf4027c3100b9e4e2dc3221cfb994433";
 
     private String result = "";
 
     // 총 페이지를 알아내기 위한 컨트롤러
     @ResponseBody
-    @GetMapping("/api/getPages")
+    @GetMapping("/api/movie/getPages")
     public int getPages() {
 
         int page = 0 ;
@@ -70,7 +69,7 @@ public class ApiController {
 
     // api 정보를 DB에 저장
     @ResponseBody
-    @GetMapping("/api/getInfo")
+    @GetMapping("/api/movie/getInfo")
     public String getInfo() {
 
         int pages = 1;
@@ -99,7 +98,7 @@ public class ApiController {
     }
 
 
-    @RequestMapping(value = "crawlingMovieInfo")
+    @RequestMapping(value = "/api/crawlingMovieInfo")
     @ResponseBody
     public String movieApi(HttpServletRequest request, ModelMap model) throws Exception {
 

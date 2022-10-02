@@ -24,7 +24,7 @@ public class AccountController {
     private final JwtTokenProvider jwtTokenProvider;
     private final AccountRepository accountRepository;
 
-    @PostMapping("/api/signup")
+    @PostMapping("/api/account/signup")
     public ResponseEntity registerAccount(@RequestBody AccountRequestDto requestDto) {
 
         log.info("registerAccount Controller Start!!");
@@ -36,7 +36,7 @@ public class AccountController {
         return ResponseEntity.ok().build();
     }
     // 로그인
-    @PostMapping("/api/login")
+    @PostMapping("/api/account/login")
     public String login(@RequestBody Map<String, String> account) {
 
         log.info("login Start!!");
@@ -48,7 +48,7 @@ public class AccountController {
         return obj;
     }
 
-    @PostMapping("/api/findPassword")
+    @PostMapping("/api/account/findPassword")
     public ResponseEntity findPassword(@RequestBody Map<String, String> account) {
 
         log.info("findPassword Start!!");
@@ -62,7 +62,7 @@ public class AccountController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/api/findId")
+    @PostMapping("/api/account/findId")
     public ResponseEntity findId(@RequestBody Map<String, String> account) {
 
         log.info("findId Start!!");
