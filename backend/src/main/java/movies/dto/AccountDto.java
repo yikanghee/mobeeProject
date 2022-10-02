@@ -1,19 +1,13 @@
 package movies.dto;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter
 public class AccountDto {
 
+    private Long id;
 
     private String username;
-
-    private String email;
-
-    private String password;
-
 
 }

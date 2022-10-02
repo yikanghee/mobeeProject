@@ -79,6 +79,7 @@ const addHeartAPI = (movie_id) => {
       window.alert('좋아요 하셨습니다.');
     }).catch(error => {
       console.log(error);
+      throw new Error(error);
     });
   }
 

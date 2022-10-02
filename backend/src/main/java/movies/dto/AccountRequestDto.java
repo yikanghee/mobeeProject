@@ -1,11 +1,8 @@
 package movies.dto;
 
-import lombok.*;
+import lombok.Getter;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
 public class AccountRequestDto {
 
     private String username;
