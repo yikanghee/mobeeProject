@@ -3,7 +3,7 @@ package movies.controller;
 import movies.config.UserDetailsImpl;
 import movies.domain.Heart;
 import movies.domain.Message;
-import movies.service.HeartServiceImpl;
+import movies.service.HeartSerice;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import java.util.HashMap;
 @RequiredArgsConstructor
 public class HeartController {
 
-    private final HeartServiceImpl heartService;
+    private final HeartSerice heartService;
 
     @GetMapping("/api/movies/{movie_id}/heart")
     public HashMap<String, Object> ReadHeart(@PathVariable Long movie_id, @AuthenticationPrincipal UserDetailsImpl userDetails){

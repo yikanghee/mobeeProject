@@ -2,6 +2,7 @@ package movies.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import movies.service.CrowlingService;
 import movies.service.Impl.CrowlingServiceImpl;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -17,7 +18,7 @@ import java.io.IOException;
 @Slf4j
 public class CrowlingController {
 
-    private final CrowlingServiceImpl crowlingService;
+    private final CrowlingService crowlingService;
 
     @Async
     @Scheduled(cron = "0 0 12 * * *", zone = "Asia/Seoul")
