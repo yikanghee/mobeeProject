@@ -24,10 +24,13 @@ import java.util.*;
 @RequiredArgsConstructor
 public class CrowlingServiceImpl implements CrowlingService {
 
-    @Value("${naver.papago.clientId}")
+//    @Value("${naver.papago.clientId}")
+
+    @Value("dd")
     private String clientId;
 
-    @Value("${naver.papago.clientSecret}")
+//    @Value("${naver.papago.clientSecret}")
+    @Value("dd")
     private String clientSecret;
 
     private String codeUrl = ApiUrlConstants.MOVIE_URL;
@@ -36,7 +39,7 @@ public class CrowlingServiceImpl implements CrowlingService {
     private String TRANSLATEURL = ApiUrlConstants.TRANSLATEURL;
     private final CrowlingRepository crowlingRepository;
 
-    public void getCrowling() throws IOException {
+    public void getCrowling() throws Exception {
 
         List<String> codeList = getCode();
 
@@ -51,12 +54,15 @@ public class CrowlingServiceImpl implements CrowlingService {
             String title = doc.select("#content > div.article > div.mv_info_area > div.mv_info > h3 > a:nth-child(1)").text();
             String description = doc.select("#content > div.article > div.section_group.section_group_frst > div:nth-child(1) > div > div.story_area > p").text();
             String imgUrl = doc.select("#content > div.article > div.mv_info_area > div.poster > a > img").attr("src");
+            String engdescription = translate(description);
 
             crowlingRepository.save(CrowlingMovie.builder()
                     .title(title)
+                    .engDescription(engdescription)
                     .description(description)
                     .imgUrl(imgUrl)
                     .build());
+
         }
     }
 
@@ -142,8 +148,5 @@ public class CrowlingServiceImpl implements CrowlingService {
         log.info("### setNaverInfo end");
         return requestheader;
     }
-
-
-
 
 }

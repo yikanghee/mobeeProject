@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import movies.service.CrowlingService;
 import movies.service.Impl.ApiServiceImpl;
 import movies.service.Impl.CrowlingServiceImpl;
 import org.springframework.stereotype.Controller;
@@ -23,8 +24,6 @@ import java.net.URL;
 public class ApiController {
 
     private final ApiServiceImpl ApiService;
-    private final CrowlingServiceImpl crowlingService;
-
     private final String KEY = "bf4027c3100b9e4e2dc3221cfb994433";
 
     private String result = "";
@@ -94,22 +93,4 @@ public class ApiController {
 
         return "ok";
     }
-
-
-    @RequestMapping(value = "/api/crawlingMovieInfo")
-    @ResponseBody
-    public String movieApi(HttpServletRequest request, ModelMap model) throws Exception {
-
-        String url = "http://127.0.0.1:5000/crawlingMovieInfo";
-
-        String rr = request.getParameter("title");
-
-        if (rr != null) {
-            return "성공!";
-        }else {
-            return "실패!";
-        }
-
-    }
-
 }

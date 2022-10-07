@@ -23,7 +23,7 @@ public class CrowlingController {
     @Async
     @Scheduled(cron = "0 0 12 * * *", zone = "Asia/Seoul")
     @GetMapping("/api/crowling/1")
-    public void getCrowling() throws IOException {
+    public void getCrowling() throws Exception {
         crowlingService.getCrowling();
     }
 
