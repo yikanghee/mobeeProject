@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import movies.config.constants.ApiUrlConstants;
 import movies.domain.CrowlingMovie;
 import movies.repository.CrowlingRepository;
+import movies.service.CrowlingService;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -18,7 +19,7 @@ import java.util.List;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class CrowlingServiceImpl {
+public class CrowlingServiceImpl implements CrowlingService {
 
     private String codeUrl = ApiUrlConstants.MOVIE_URL;
     private String Url = ApiUrlConstants.URL;

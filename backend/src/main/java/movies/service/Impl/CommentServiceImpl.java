@@ -8,6 +8,7 @@ import movies.repository.AccountRepository;
 import movies.repository.MovieRepository;
 import movies.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
+import movies.service.CommentService;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -16,7 +17,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CommentServiceImpl {
+public class CommentServiceImpl implements CommentService {
 
     private final AccountRepository accountRepository;
     private final MovieRepository movieRepository;

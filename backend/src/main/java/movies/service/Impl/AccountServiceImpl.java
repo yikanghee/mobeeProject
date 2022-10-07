@@ -12,7 +12,6 @@ import movies.exception.result.AccountExceptionResult;
 import movies.repository.AccountRepository;
 import movies.service.AccountService;
 import org.apache.commons.mail.HtmlEmail;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +31,6 @@ public class AccountServiceImpl implements AccountService {
 
     private final PasswordEncoder passwordEncoder;
 
-    private final JavaMailSender mailSender;
     private static final String FROM_ADDRESS = "";
 
 
