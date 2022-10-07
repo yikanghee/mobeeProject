@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import movies.domain.Account;
 import movies.repository.AccountRepository;
-import movies.repository.CommentRepository;
-import movies.repository.HeartRepository;
-import movies.service.AccountService;
-import movies.service.AdminService;
+import movies.service.Impl.AdminServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +19,7 @@ public class AdminController {
 
     private final AccountRepository accountRepository;
 
-    private final AdminService adminService;
+    private final AdminServiceImpl adminService;
 
     @GetMapping("/api/admin/account")
     public String account(Model model) {

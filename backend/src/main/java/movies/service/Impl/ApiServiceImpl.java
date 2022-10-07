@@ -1,4 +1,4 @@
-package movies.service;
+package movies.service.Impl;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 @Service
 @Slf4j
-public class ApiService {
+public class ApiServiceImpl {
 
     private final MovieRepository movieRepository;
 

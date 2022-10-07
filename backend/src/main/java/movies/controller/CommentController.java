@@ -2,6 +2,7 @@ package movies.controller;
 
 import movies.dto.CommentRequestDto;
 import movies.service.CommentService;
+import movies.service.Impl.CommentServiceImpl;
 import movies.config.UserDetailsImpl;
 import movies.domain.Comment;
 import movies.domain.Message;

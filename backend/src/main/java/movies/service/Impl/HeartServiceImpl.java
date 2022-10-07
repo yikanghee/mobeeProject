@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class HeartService {
+public class HeartServiceImpl {
 
     private final HeartRepository heartRepository;
     private final MovieRepository movieRepository;
