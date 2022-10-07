@@ -1,4 +1,4 @@
-package movies.service;
+package movies.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import movies.repository.AccountRepository;
@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class AdminService {
+public class AdminServiceImpl {
 
     private final AccountRepository accountRepository;
     private final HeartRepository heartRepository;

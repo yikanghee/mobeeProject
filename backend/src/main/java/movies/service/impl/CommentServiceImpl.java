@@ -1,4 +1,4 @@
-package movies.service;
+package movies.service.impl;
 
 import movies.domain.Movie;
 import movies.dto.CommentRequestDto;
@@ -8,6 +8,7 @@ import movies.repository.AccountRepository;
 import movies.repository.MovieRepository;
 import movies.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
+import movies.service.CommentSerivce;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -16,7 +17,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CommentService {
+public class CommentServiceImpl implements CommentSerivce {
 
     private final AccountRepository accountRepository;
     private final MovieRepository movieRepository;
