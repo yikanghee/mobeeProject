@@ -1,11 +1,11 @@
-package movies.service;
+package movies.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-public class ChatService {
+public class ChatServiceImpl {
 
     /**
      * destination정보에서 roomId 추출

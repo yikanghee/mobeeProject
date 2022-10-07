@@ -4,9 +4,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import movies.service.CrowlingService;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.Scheduled;
+import movies.service.impl.ApiServiceImpl;
+import movies.service.impl.CrowlingServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
@@ -24,8 +22,8 @@ import java.net.URL;
 @RequiredArgsConstructor
 public class ApiController {
 
-    private final movies.service.ApiService ApiService;
-    private final CrowlingService crowlingService;
+    private final ApiServiceImpl ApiService;
+    private final CrowlingServiceImpl crowlingService;
 
     private final String KEY = "bf4027c3100b9e4e2dc3221cfb994433";
 

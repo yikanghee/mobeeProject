@@ -1,7 +1,7 @@
 package movies.controller;
 
 import movies.dto.CommentRequestDto;
-import movies.service.CommentService;
+import movies.service.CommentSerivce;
 import movies.config.UserDetailsImpl;
 import movies.domain.Comment;
 import movies.domain.Message;
@@ -18,7 +18,7 @@ import java.util.HashMap;
 @RequiredArgsConstructor
 public class CommentController {
 
-    private final CommentService commentService;
+    private final CommentSerivce commentService;
 
     @GetMapping("/api/movies/{movie_id}/comments")
     public HashMap<String, Object> ReadComment(@PathVariable Long movie_id){
