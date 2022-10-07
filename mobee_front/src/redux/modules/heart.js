@@ -24,7 +24,7 @@ const initialState = {
 // 좋아요 정보 조회
 const getHeartAPI = (movie_id) => {
   return function (dispatch, getState, { history }) {
-    const API = `http://localhost:0/api/movies/${movie_id}/heart`;
+    const API = `http://localhost:8080/api/movies/${movie_id}/heart`;
     
     let token = localStorage.getItem('is_token');
 
