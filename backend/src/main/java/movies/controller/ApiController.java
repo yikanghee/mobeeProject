@@ -2,6 +2,8 @@ package movies.controller;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import movies.service.CrowlingService;
@@ -21,6 +23,7 @@ import java.net.URL;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
+@Api(tags = {"영화 정보 API에서 정보를 가져오는 Controller"})
 public class ApiController {
 
     private final ApiServiceImpl ApiService;
@@ -31,6 +34,7 @@ public class ApiController {
     // 총 페이지를 알아내기 위한 컨트롤러
     @ResponseBody
     @GetMapping("/api/movie/getPages")
+    @ApiOperation("영화 정보 총 페이지를 알기 위한 메소드")
     public int getPages() {
 
         int page = 0 ;
@@ -67,6 +71,7 @@ public class ApiController {
     // api 정보를 DB에 저장
     @ResponseBody
     @GetMapping("/api/movie/getInfo")
+    @ApiOperation(value = "영화 정보를 저장하는 메소드")
     public String getInfo() {
 
         int pages = 1;
