@@ -1,5 +1,7 @@
 package movies.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import movies.domain.Account;
@@ -15,12 +17,14 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 @Slf4j
+@Api(tags = {"관리자 관련 정보를 제공하는 Controller"})
 public class AdminController {
 
     private final AccountRepository accountRepository;
 
     private final AdminServiceImpl adminService;
 
+    @ApiOperation(value = "전체 회원 정보 조회 메소드")
     @GetMapping("/api/admin/account")
     public String account(Model model) {
 
@@ -31,6 +35,7 @@ public class AdminController {
         return "admin/account";
     }
 
+    @ApiOperation(value = "관리자가 회원을 삭제 가능 메소드")
     @GetMapping("/api/admin/delete")
     public String deleteAccount(@RequestParam("id") Long id,
                                 RedirectAttributes attributes) {

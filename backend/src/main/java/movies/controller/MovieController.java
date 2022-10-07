@@ -1,6 +1,8 @@
 package movies.controller;
 
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import movies.domain.Movie;
 import movies.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,11 +16,13 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@Api(tags = {"전체 영화 정보를 제공하는 Controller"})
 public class MovieController {
 
     private final MovieRepository movieRepository;
 
     @GetMapping("/api/movies")
+    @ApiOperation("현재 영화 정보를 조회하는 메소드")
     public Page<Movie> getAllMovies(
             @RequestParam("page") int page, // 요청페이지
             @RequestParam("size") int size, // 요청 사이즈 (게시글에 몇개씩 보여줄지)
@@ -43,6 +47,7 @@ public class MovieController {
         return movies;
     }
 
+    @ApiOperation("상세 영화 정보를 조회하는 메소드")
     @GetMapping("/api/movies/{movie_id}")
     public Movie getMovieById(@PathVariable Long movie_id) {
         Movie movie = movieRepository.findById(movie_id).orElse(null);
