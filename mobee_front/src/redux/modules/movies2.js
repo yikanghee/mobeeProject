@@ -19,7 +19,7 @@ const initialState = {
         imgUrl: 'imgUrl',
         title: 'title',
         description: 'description',
-
+        engDescription: 'engDescription',
     }
 };
 
@@ -29,7 +29,6 @@ const movieListAPI2 = () => {
 
         axios.get(API)
             .then((response) => {
-                console.log("들어오냐?")
                 return response.data
             })
             .then((_movie_list2) => {
