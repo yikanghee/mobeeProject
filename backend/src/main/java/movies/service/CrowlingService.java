@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface CrowlingService {
 
-    void getCrowling() throws IOException;
+    void getCrowling() throws Exception;
 
     List<String> getCode() throws IOException;
 

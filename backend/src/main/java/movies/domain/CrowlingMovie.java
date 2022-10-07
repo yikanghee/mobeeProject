@@ -22,8 +22,12 @@ public class CrowlingMovie {
 
     private String imgUrl;
 
+
     @Column(length = 4000)
     private String description;
+
+    @Column(length = 4000)
+    private String engDescription;
 
 
 }
