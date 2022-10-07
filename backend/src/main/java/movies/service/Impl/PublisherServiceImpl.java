@@ -1,4 +1,4 @@
-package movies.service;
+package movies.service.Impl;
 
 import movies.domain.ChatMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +7,7 @@ import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PublisherService {
+public class PublisherServiceImpl {
     @Autowired
     private RedisTemplate redisTemplate;
 
