@@ -24,13 +24,10 @@ import java.util.*;
 @RequiredArgsConstructor
 public class CrowlingServiceImpl implements CrowlingService {
 
-//    @Value("${naver.papago.clientId}")
-
-    @Value("dd")
+    @Value("${naver.papago.clientId}")
     private String clientId;
 
-//    @Value("${naver.papago.clientSecret}")
-    @Value("dd")
+    @Value("${naver.papago.clientSecret}")
     private String clientSecret;
 
     private String codeUrl = ApiUrlConstants.MOVIE_URL;

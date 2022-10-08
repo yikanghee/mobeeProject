@@ -31,11 +31,8 @@ const Description2 = (props) => {
         <div className="description">
             <h2 className="introduce">영화 소개</h2>
             <p className="detail">{description}</p>
-            <h2 className="introduce">영화 영어 소개</h2>
             <p className="detail">{engDescription}</p>
         </div>
-
-
     )
 };
 
