@@ -7,7 +7,7 @@ import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PublisherServiceImpl {
+public class PublisherService {
     @Autowired
     private RedisTemplate redisTemplate;
 

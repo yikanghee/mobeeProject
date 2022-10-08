@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-public class ChatServiceImpl {
+public class ChatService {
 
     /**
      * destination정보에서 roomId 추출

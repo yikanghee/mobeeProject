@@ -30,7 +30,7 @@ const initialState = {
 // 회원 가입
 const signupAPI = (id, email, pwd, pwd_check) => {
   return function (dispatch, getState, { history }) {
-    const API = "http://localhost:8080/api/signup";
+    const API = "http://localhost:8080/api/account/signup";
 
     axios.post(API,
       {
@@ -59,7 +59,7 @@ const signupAPI = (id, email, pwd, pwd_check) => {
 const loginAPI = (id, pwd) => {
   return function (dispatch, getState, { history }) {
 
-    const API = "http://localhost:8080/api/login";
+    const API = "http://localhost:8080/api/account/login";
 
     axios.post(API,
       {
@@ -149,7 +149,7 @@ const logInCheckStorage = () => {
 const pwAPI = (email) => {
   return function (dispatch, getState, {history}) {
 
-    const API = "http://localhost:8080/api/findPassword";
+    const API = "http://localhost:8080/api/account/findPassword";
 
     axios.post(API,
         {
@@ -174,7 +174,7 @@ const pwAPI = (email) => {
 const idAPI = (email) => {
   return function (dispatch, getState, {history}) {
 
-    const API = "http://localhost:8080/api/findId";
+    const API = "http://localhost:8080/api/account/findId";
 
     axios.post(API,
         {
