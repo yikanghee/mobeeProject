@@ -7,7 +7,7 @@ import movies.dto.MailDto;
 import java.util.Map;
 
 public interface AccountService {
-
+//이슈 확인
     Account registerAccount(AccountRequestDto requestDto);
 
     String login(Map<String, String> account);
