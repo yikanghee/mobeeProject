@@ -1,6 +1,8 @@
 package movies.controller;
 
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import movies.repository.AccountRepository;
 import movies.service.AccountService;
@@ -17,6 +19,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RestController
 @Slf4j
+@Api(tags = {"유저 관련 정보를 제공하는 Controller"})
 public class AccountController {
 
     private final AccountService accountService;
@@ -24,6 +27,7 @@ public class AccountController {
     private final JwtTokenProvider jwtTokenProvider;
     private final AccountRepository accountRepository;
 
+    @ApiOperation(value = "회원가입을 담당하는 메소드")
     @PostMapping("/api/account/signup")
     public ResponseEntity registerAccount(@RequestBody AccountRequestDto requestDto) {
 
@@ -36,6 +40,7 @@ public class AccountController {
         return ResponseEntity.ok().build();
     }
     // 로그인
+    @ApiOperation(value = "로그인을 담당하는 메소드")
     @PostMapping("/api/account/login")
     public String login(@RequestBody Map<String, String> account) {
 
@@ -48,6 +53,7 @@ public class AccountController {
         return obj;
     }
 
+    @ApiOperation(value = "비밀번호 찾기를 담당하는 메소드")
     @PostMapping("/api/account/findPassword")
     public ResponseEntity findPassword(@RequestBody Map<String, String> account) {
 
@@ -62,6 +68,7 @@ public class AccountController {
         return ResponseEntity.ok().build();
     }
 
+    @ApiOperation(value = "아이디 찾기를 담당하는 메소드")
     @PostMapping("/api/account/findId")
     public ResponseEntity findId(@RequestBody Map<String, String> account) {
 

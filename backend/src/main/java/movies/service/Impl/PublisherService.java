@@ -1,4 +1,4 @@
-package movies.service;
+package movies.service.Impl;
 
 import movies.domain.ChatMessage;
 import org.springframework.beans.factory.annotation.Autowired;

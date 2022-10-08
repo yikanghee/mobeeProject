@@ -1,4 +1,4 @@
-package movies.service;
+package movies.service.Impl;
 
 import movies.domain.Heart;
 import movies.domain.Movie;
@@ -7,6 +7,7 @@ import movies.repository.HeartRepository;
 import movies.domain.Account;
 import movies.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
+import movies.service.HeartSerice;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -15,7 +16,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class HeartService {
+public class HeartServiceImpl implements HeartSerice {
 
     private final HeartRepository heartRepository;
     private final MovieRepository movieRepository;

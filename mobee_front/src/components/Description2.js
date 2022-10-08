@@ -21,6 +21,7 @@ import { useSelector } from 'react-redux';
 const Description2 = (props) => {
     // 영화 정보 가져오기
     const { description } = useSelector(state => state.movies2.movie_info2);
+    const { engDescription } = useSelector(state => state.movies2.movie_info2);
     // 가져올 때까지 로딩
     if (!description) {
         return <ElSpinner />
@@ -30,6 +31,7 @@ const Description2 = (props) => {
         <div className="description">
             <h2 className="introduce">영화 소개</h2>
             <p className="detail">{description}</p>
+            <p className="detail">{engDescription}</p>
         </div>
     )
 };

@@ -1,4 +1,4 @@
-package movies.service;
+package movies.service.Impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
