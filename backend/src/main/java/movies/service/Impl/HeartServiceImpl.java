@@ -2,6 +2,10 @@ package movies.service.Impl;
 
 import movies.domain.Heart;
 import movies.domain.Movie;
+import movies.exception.AccountException;
+import movies.exception.MovieException;
+import movies.exception.result.AccountExceptionResult;
+import movies.exception.result.MovieExceptionResult;
 import movies.repository.AccountRepository;
 import movies.repository.HeartRepository;
 import movies.domain.Account;
@@ -42,10 +46,10 @@ public class HeartServiceImpl implements HeartSerice {
     @Transactional
     public Heart CreateHeart(Long movie_id, Long account_id){
         Movie movie = movieRepository.findById(movie_id).orElseThrow(
-                () -> new IllegalArgumentException("책이 존재하지 않습니다.")
+                () -> new MovieException(MovieExceptionResult.MOVIE_NOT_FOUND)
         );
         Account account = accountRepository.findById(account_id).orElseThrow(
-                () -> new IllegalArgumentException("계정이 존재하지 않습니다.")
+                () -> new AccountException(AccountExceptionResult.ACCOUNT_NOT_FOUND)
         );
         Heart heart = heartRepository.findByMovieIdAndAccountId(movie_id, account_id);
         if (heart == null) {
@@ -61,10 +65,10 @@ public class HeartServiceImpl implements HeartSerice {
 
     public Heart DeleteHeart(Long movie_id, Long account_id){
         Movie movie = movieRepository.findById(movie_id).orElseThrow(
-                () -> new IllegalArgumentException("책이 존재하지 않습니다.")
+                () -> new MovieException(MovieExceptionResult.MOVIE_NOT_FOUND)
         );
         Account account = accountRepository.findById(account_id).orElseThrow(
-                () -> new IllegalArgumentException("계정이 존재하지 않습니다.")
+                () -> new AccountException(AccountExceptionResult.ACCOUNT_NOT_FOUND)
         );
         Heart heart = heartRepository.findByMovieIdAndAccountId(movie_id, account_id);
         if (heart != null){

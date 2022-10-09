@@ -2,6 +2,7 @@ package movies.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import movies.exception.result.AccountExceptionResult;
+import movies.exception.result.MovieExceptionResult;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -18,6 +19,12 @@ public class MovieServiceExceptionHandler extends ResponseEntityExceptionHandler
         return this.makeErrorResponseEntity(exception.getExceptionResult());
     }
 
+    @ExceptionHandler({MovieException.class})
+    public ResponseEntity<ErrorResponse> handleMovieException(final MovieException exception) {
+        log.warn("MovieException occur : ", exception);
+        return this.makeErrorResponseEntity(exception.getCommentExceptionResult());
+    }
+
     /**
      * Exception 정보에서 ResponseEntity(ErrorResponse) 생성
      * -> 각 Exception에 맞에 Param 변경
@@ -26,6 +33,13 @@ public class MovieServiceExceptionHandler extends ResponseEntityExceptionHandler
      * @return
      */
     private ResponseEntity<ErrorResponse> makeErrorResponseEntity(final AccountExceptionResult exceptionResult) {
+
+        return ResponseEntity.status(exceptionResult.getStatus())
+                .body(new ErrorResponse(exceptionResult.name(), exceptionResult.getMessage()));
+    }
+
+    private ResponseEntity<ErrorResponse> makeErrorResponseEntity(final MovieExceptionResult exceptionResult) {
+
         return ResponseEntity.status(exceptionResult.getStatus())
                 .body(new ErrorResponse(exceptionResult.name(), exceptionResult.getMessage()));
     }
