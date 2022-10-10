@@ -1,10 +1,39 @@
 # MOBEE
 영화 웹 어플리케이션
+
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/86788362/194803933-214ce50c-e4de-46d7-ac52-f75ee36c4008.png">
+
 # 목표
 * 영화 사이트를 직접 구현하여 Bank-End System을 이해한다.
 * React.js를 활용하여 Front-End를 직접 구현하여 이해한다.
+* Restful 개발 방식으로 API개발을 진행한다.
 * JPA를 사용하여 객체지향 프로그래밍을 이해한다.
-# 사용기술
-* Spring Boot, Java 8, Gradle, Mysql, JPA, Redis, React, Redux, JWT, EC2, S3
-# ERD
-![image](https://user-images.githubusercontent.com/86788362/177350523-3a2c7da0-278a-42ef-9d8c-b847ea1076b7.png)
+
+# 적용기술
+* Spring Boot, Java 11, Gradle, Mysql, JPA, Redis, React, Redux, JWT, EC2, S3
+
+# 프로젝트 소개
+전체 영화 정보와 현재 영화 정보를 제공하여 사용자에게 영화에 대한 정보를 전달합니다. 제공된 정보에 
+대한 사용자 평가 기능을 추가하여 사용자는 영화에 대한 정보와 평가를 할 수 있습니다.
+
+# 개발 기간
+2022.04.24 ~ 2022.06.25
+
+# 회고
+Spring boot를 기반으로 한 첫번째 프로젝트입니다.
+프로젝트를 기획하고 진행하는데에 있어서 처음으로 도입하는
+기술들이 많아서 어려움을 많이 겪은 프로젝트입니다.
+
+기본에 사용하던 sql-mapper방식에서 jpa를 바꾸는데 있어서
+Jpql이나 트랜젝션을 필수적으로 공부하면서 진행하게 되어서
+시간적으로 모자람이 많았던 프로젝트입니다.
+
+그리고 원래 사용하지 않았던 React를 사용하기로 마음을 먹었는데
+기본적인 자바스크립트도 잘 몰라서 많이 헤맸습니다.
+
+이를 해결하기 위해서 클론코딩을 하면서 
+기본 자바스크립트, jpa기본 상식들과 spring 기본 사용 방법에 대해 공부하며
+열심히 만들었지만 개인적으로 아쉬움이 많은 프로젝트입니다.
+
+
+
