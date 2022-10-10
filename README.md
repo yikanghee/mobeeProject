@@ -10,7 +10,7 @@
 * JPA를 사용하여 객체지향 프로그래밍을 이해한다.
 
 # 적용기술
-* Spring Boot, Java 11, Gradle, Mysql, JPA, Redis, React, Redux, JWT, EC2, S3
+* Spring Boot, Java 8, Gradle, Mysql, JPA, Redis, React, Redux, JWT, EC2, S3
 
 # 프로젝트 소개
 전체 영화 정보와 현재 영화 정보를 제공하여 사용자에게 영화에 대한 정보를 전달합니다. 제공된 정보에 
