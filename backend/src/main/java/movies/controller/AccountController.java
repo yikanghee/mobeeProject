@@ -23,9 +23,6 @@ import java.util.Map;
 public class AccountController {
 
     private final AccountService accountService;
-    private final PasswordEncoder passwordEncoder;
-    private final JwtTokenProvider jwtTokenProvider;
-    private final AccountRepository accountRepository;
 
     @ApiOperation(value = "회원가입을 담당하는 메소드")
     @PostMapping("/api/account/signup")
