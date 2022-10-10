@@ -86,7 +86,7 @@ const movieListAPI = (select) => {
     // }
     console.log(getState().movies.paging.current);
 
-    const API = `http://localhost:8080/api/movies?sort=${select}&page=${current}&size=24`;  
+    const API = `http://34.227.181.214:8080/api/movies?sort=${select}&page=${current}&size=24`;  
     axios.get(API)
       .then((response) => {
         return response.data
@@ -103,7 +103,7 @@ const movieListAPI = (select) => {
 // 상세 페이지가 렌더링 되면 호출되어 좋아요, 리뷰 정보도 연이어 가져오기 그 후 리덕스에 저장
 const movieInfoAPI = (movie_id) => {
   return function (dispatch, getState, { history }) {
-    const API = `http://localhost:8080/api/movies/${movie_id}`;
+    const API = `http://34.227.181.214:8080/api/movies/${movie_id}`;
     axios.get(API)
       .then((response) => {
         return response.data

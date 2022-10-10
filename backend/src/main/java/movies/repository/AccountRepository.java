@@ -16,6 +16,7 @@ public interface AccountRepository extends JpaRepository<Account, Long>, Queryds
 
     Optional<Account> findAllByEmail(String email);
 
+    @Transactional
     @Modifying(clearAutomatically = true)
     @Query(value = "UPDATE account a SET a.password = :password WHERE a.username = :username", nativeQuery = true)
     void updatePassword(@Param("username") String username, @Param("password") String password);

@@ -95,7 +95,7 @@ const Login = (props) => {
 
             {/* <button className="signin_button"
               onClick={(login) => {
-                { location.replace("http://localhost:8080/user/index") }
+                { location.replace("http://34.227.181.214:8080/user/index") }
               }}
             >관리자 로그인</button> */}
           </div>

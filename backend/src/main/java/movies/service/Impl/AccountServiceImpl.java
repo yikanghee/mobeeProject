@@ -41,7 +41,11 @@ public class AccountServiceImpl implements AccountService {
     @Value("${naver.pw}")
     private String hostPw;
 
+    @Value("${naver.id}")
+    private String HOSTID;
 
+    @Value("${naver.pw}")
+    private String HOSTPW;
 
     public Account registerAccount(AccountRequestDto requestDto) {
 
@@ -184,10 +188,10 @@ public class AccountServiceImpl implements AccountService {
 
         String charSet = "utf-8";
         String hostSMTP = "smtp.naver.com";
-        String hostSMTPid = "";
-        String hostSMTPpwd = "";
+        String hostSMTPid = HOSTID;
+        String hostSMTPpwd = HOSTPW;
 
-        String fromEmail = "";
+        String fromEmail = FROM_ADDRESS;
         String fromName = "MOBEE";
 
         String mail = mailDto.getAddress();

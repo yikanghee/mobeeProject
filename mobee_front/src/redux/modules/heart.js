@@ -24,7 +24,7 @@ const initialState = {
 // 좋아요 정보 조회
 const getHeartAPI = (movie_id) => {
   return function (dispatch, getState, { history }) {
-    const API = `http://localhost:8080/api/movies/${movie_id}/heart`;
+    const API = `http://34.227.181.214:8080/api/movies/${movie_id}/heart`;
     
     let token = localStorage.getItem('is_token');
 
@@ -57,7 +57,7 @@ const getHeartAPI = (movie_id) => {
 const addHeartAPI = (movie_id) => {
   return function (dispatch, getState, { history }) {
 
-    const API = `http://localhost:8080/api/movies/${movie_id}/heart`;
+    const API = `http://34.227.181.214:8080/api/movies/${movie_id}/heart`;
     let token = localStorage.getItem('is_token');
 
     const refreshToken = localStorage.getItem('is_refresh');
@@ -90,7 +90,7 @@ const addHeartAPI = (movie_id) => {
 const deleteHeartAPI = (movie_id) => {
   return function (dispatch, getState, { history }) {
 
-    const API = `http://localhost:8080/api/movies/${movie_id}/heart`;
+    const API = `http://34.227.181.214:8080/api/movies/${movie_id}/heart`;
     let token = localStorage.getItem('is_token');
 
     const refreshToken = localStorage.getItem('is_refresh');
