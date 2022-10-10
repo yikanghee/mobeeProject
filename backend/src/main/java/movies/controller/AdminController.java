@@ -21,7 +21,6 @@ import java.util.List;
 public class AdminController {
 
     private final AccountRepository accountRepository;
-
     private final AdminServiceImpl adminService;
 
     @ApiOperation(value = "전체 회원 정보 조회 메소드")
