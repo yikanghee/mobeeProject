@@ -4,6 +4,10 @@ import movies.domain.Movie;
 import movies.dto.CommentRequestDto;
 import movies.domain.Account;
 import movies.domain.Comment;
+import movies.exception.AccountException;
+import movies.exception.MovieException;
+import movies.exception.result.AccountExceptionResult;
+import movies.exception.result.MovieExceptionResult;
 import movies.repository.AccountRepository;
 import movies.repository.MovieRepository;
 import movies.repository.CommentRepository;
@@ -49,10 +53,10 @@ public class CommentServiceImpl implements CommentService {
 
     public Comment CreateComment(CommentRequestDto requestDto, Long movie_id, Long account_id){
         Movie movie = movieRepository.findById(movie_id).orElseThrow(
-                () -> new IllegalArgumentException("영화가 존재하지 않습니다.")
+                () -> new MovieException(MovieExceptionResult.MOVIE_NOT_FOUND)
         );
         Account account = accountRepository.findById(account_id).orElseThrow(
-                () -> new IllegalArgumentException("계정이 존재하지 않습니다.")
+                () -> new AccountException(AccountExceptionResult.ACCOUNT_NOT_FOUND)
         );
         Comment checkComment = commentRepository.findByAccountIdAndMovieId(account_id, movie_id);
 
@@ -71,8 +75,9 @@ public class CommentServiceImpl implements CommentService {
     @Transactional
     public Comment UpdateComment(CommentRequestDto requestDto, Long comment_id, Long account_id) {
         Comment comment = commentRepository.findById(comment_id).orElseThrow(
-                () -> new IllegalArgumentException("댓글이 존재하지 않습니다.")
+                () -> new MovieException(MovieExceptionResult.COMMENT_NOT_FOUND)
         );
+
         if (!comment.getAccount().getId().equals(account_id)){
             return null;
         }else{
@@ -83,13 +88,13 @@ public class CommentServiceImpl implements CommentService {
 
     public Comment DeleteComment(Long movie_id, Long comment_id, Long account_id){
         Movie movie = movieRepository.findById(movie_id).orElseThrow(
-                () -> new IllegalArgumentException("게시글이 존재하지 않습니다.")
+                () -> new MovieException(MovieExceptionResult.CONTENT_NOT_FOUND)
         );
         Comment comment = commentRepository.findById(comment_id).orElseThrow(
-                () -> new IllegalArgumentException("댓글이 존재하지 않습니다.")
+                () -> new MovieException(MovieExceptionResult.COMMENT_NOT_FOUND)
         );
         Account account = accountRepository.findById(account_id).orElseThrow(
-                () -> new IllegalArgumentException("아이디가 존재하지 않습니다.")
+                () -> new AccountException(AccountExceptionResult.ACCOUNT_NOT_FOUND)
         );
         if (!comment.getAccount().getId().equals(account_id)){
             return null;

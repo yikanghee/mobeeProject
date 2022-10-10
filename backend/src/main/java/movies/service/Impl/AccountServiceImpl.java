@@ -12,6 +12,7 @@ import movies.exception.result.AccountExceptionResult;
 import movies.repository.AccountRepository;
 import movies.service.AccountService;
 import org.apache.commons.mail.HtmlEmail;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -31,8 +32,14 @@ public class AccountServiceImpl implements AccountService {
 
     private final PasswordEncoder passwordEncoder;
 
-    private static final String FROM_ADDRESS = "";
+    @Value("${naver.address}")
+    private String FROM_ADDRESS;
 
+    @Value("${naver.id}")
+    private String HOSTID;
+
+    @Value("${naver.pw}")
+    private String HOSTPW;
 
     public Account registerAccount(AccountRequestDto requestDto) {
 
@@ -175,10 +182,10 @@ public class AccountServiceImpl implements AccountService {
 
         String charSet = "utf-8";
         String hostSMTP = "smtp.naver.com";
-        String hostSMTPid = "";
-        String hostSMTPpwd = "";
+        String hostSMTPid = HOSTID;
+        String hostSMTPpwd = HOSTPW;
 
-        String fromEmail = "";
+        String fromEmail = FROM_ADDRESS;
         String fromName = "MOBEE";
 
         String mail = mailDto.getAddress();

@@ -25,7 +25,7 @@ const initialState = {
 
 const movieListAPI2 = () => {
     return function (dispatch, getState, {history}) {
-        const API = `http://localhost:8080/api/movies2`;
+        const API = `http://34.227.181.214:8080/api/movies2`;
 
         axios.get(API)
             .then((response) => {
@@ -40,7 +40,7 @@ const movieListAPI2 = () => {
 
 const movieInfoAPI2 = (movie_id) => {
     return function (dispatch, getState, {history}){
-        const API = `http://localhost:8080/api/movies2/${movie_id}`;
+        const API = `http://34.227.181.214:8080/api/movies2/${movie_id}`;
         axios.get(API)
             .then((response) => {
                 return response.data
