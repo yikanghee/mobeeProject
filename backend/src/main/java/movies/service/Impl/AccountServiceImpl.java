@@ -36,12 +36,6 @@ public class AccountServiceImpl implements AccountService {
     private String FROM_ADDRESS;
 
     @Value("${naver.id}")
-    private String hostId;
-
-    @Value("${naver.pw}")
-    private String hostPw;
-
-    @Value("${naver.id}")
     private String HOSTID;
 
     @Value("${naver.pw}")
