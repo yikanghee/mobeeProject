@@ -31,11 +31,26 @@
 > * Spring Security
 > * Docker 
 * 기술 사용 이유
-> * Cloud 환경에서 서버의 부하를 줄이기 위해서 EC2로는 BackEnd를 S3에는 FrontEnd를 빌드
+> * EC2에는 BackEnd, S3에는 FrontEnd 빌드
 > * 원활한 작업관리를 위해서 Git을 사용
+> * 프로젝트 중 git flow 전략을 알게되어 추가하여 사용
 > * 빠른 build와 가독성을 위해서 Gradle을 사용
 > * 1.8을 사용하여 람다식과 Optional 사용
 > * 데이터의 변경/확장될 일이 많이 없다고 판단하여 RDB를 사용하였으며 무료로 사용할 수 있는 MariaDB를 사용
 > * 채팅방 인원을 정하기 위해서 Stomp-Websocket에서 지원하는 구독시스템을 사용
 > * JWT과 Spring Security를 사용하여 보안을 강화 
 > * Docker Container로 build하여 편리한 배포
+* 추가 사항
+> * 실시간 영화 크롤링
+> https://github.com/yikanghee/mobeeProject/pull/7
+> * 영어 번역 기능
+> https://github.com/yikanghee/mobeeProject/pull/18
+> * Swagger 추가
+> https://github.com/yikanghee/mobeeProject/pull/21
+> * 채팅 기능
+> https://github.com/yikanghee/mobeeProject/pull/22
+> * Exception 커스텀
+> https://github.com/yikanghee/mobeeProject/pull/25
+
+
+
