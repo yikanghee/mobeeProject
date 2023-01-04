@@ -1,16 +1,41 @@
 # MOBEE
 영화 웹 어플리케이션
+---
+1. 프로젝트 정보 : 영화를 좋아하는 사람이 만든 영화 웹 사이트
+* 작품명 : MOBEE ( Movie + Bee )
+* 기획이유 : 내가 사용하는 영화 어플리케이션은 어떻게 만들어질까?
+* 인원 : 이강희 ( 개인 )
+* 설명 : 영화를 평가하고 유저간의 소통을 할 수 있는 커뮤니케이션 사이트
+* 목표
+> * 영화 사이트를 직접 구현하여 Bank-End System을 이해한다.
+> * React.js를 활용하여 Front-End를 직접 구현하여 이해한다.
+> * ORM (JPA)을 사용하여 객체지향스러운 개발을 이해한다.
 
-<img width="846" alt="image" src="https://user-images.githubusercontent.com/86788362/194928041-fe39ef0b-80b1-40e7-8c11-5bf0151aaef5.png">
-
-# 목표
-* 영화 사이트를 직접 구현하여 Bank-End System을 이해한다.
-* React.js를 활용하여 Front-End를 직접 구현하여 이해한다.
-* JPA를 사용하여 객체지향 프로그래밍을 이해한다.
-
-# 사용기술
-* Spring Boot, Java 8, Gradle, Mysql, JPA, Redis, React, Redux, JWT, EC2, S3
-
-<img width="846" alt="스크린샷 2022-10-11 오전 3 09 14" src="https://user-images.githubusercontent.com/86788362/194928182-3aae4192-7c7b-40ca-a874-a410bca0f271.png">
-
-<img width="850" alt="스크린샷 2022-10-11 오전 3 10 28" src="https://user-images.githubusercontent.com/86788362/194928307-8a40b268-0a42-46e4-b2bb-e8a9b4efad18.png">
+2. 개발에 사용된 기술
+* IDE : Intellij, VS Code
+* Database Tool : DataGrip
+* API : Postman
+* Server : AWS EC2, S3, RDS
+* 형상관리 : Github, Git bash, Git flow
+* 개발환경 
+> * SpringBoot 
+> * Gradle 
+> * Java 1.8 
+> * MariaDB 
+> * RedisDB 
+> * Stomp-websocket 
+> * Node.js ( 16 버전 이상 )
+> * React-native
+> * AWS EC2 Ubuntu / 22.LTS
+> * JWT Token
+> * Spring Security
+> * Docker 
+* 기술 사용 이유
+> * Cloud 환경에서 서버의 부하를 줄이기 위해서 EC2로는 BackEnd를 S3에는 FrontEnd를 빌드
+> * 원활한 작업관리를 위해서 Git을 사용
+> * 빠른 build와 가독성을 위해서 Gradle을 사용
+> * 1.8을 사용하여 람다식과 Optional 사용
+> * 데이터의 변경/확장될 일이 많이 없다고 판단하여 RDB를 사용하였으며 무료로 사용할 수 있는 MariaDB를 사용
+> * 채팅방 인원을 정하기 위해서 Stomp-Websocket에서 지원하는 구독시스템을 사용
+> * JWT과 Spring Security를 사용하여 보안을 강화 
+> * Docker Container로 build하여 편리한 배포
